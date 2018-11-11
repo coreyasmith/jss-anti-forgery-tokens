@@ -6,3 +6,4 @@ placeholders:
   - componentName: ContentBlock
     fields:
       heading: JSS Rocks!
+  - componentName: JssRocksForm

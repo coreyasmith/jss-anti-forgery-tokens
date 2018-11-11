@@ -12,6 +12,8 @@
 const fs = require('fs');
 const { createDefaultDisconnectedServer } = require('@sitecore-jss/sitecore-jss-dev-tools');
 const config = require('../package.json').config;
+const bodyParser = require("body-parser");
+const jssRocksService = require("./disconnected-server/jss-rocks-service");
 
 const touchToReloadFilePath = 'src/temp/config.js';
 
@@ -36,6 +38,11 @@ const proxyOptions = {
       console.log('Manifest data updated. Refresh the browser to see latest content!');
     }
   },
+  afterMiddlewareRegistered: (app) => {
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.get("/jssrocksapi/form", jssRocksService.getContact);
+    app.post("/jssrocksapi/form", jssRocksService.submitForm);
+  }
 };
 
 createDefaultDisconnectedServer(proxyOptions);
