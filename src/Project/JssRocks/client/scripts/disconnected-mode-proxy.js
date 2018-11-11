@@ -10,7 +10,7 @@
 /* eslint-disable no-console */
 
 const fs = require('fs');
-const { createDefaultDisconnectedServer } = require('@sitecore-jss/sitecore-jss-dev-tools');
+const { createCustomDisconnectedServer } = require('./disconnected-server/create-custom-disconnected-server');
 const config = require('../package.json').config;
 const bodyParser = require("body-parser");
 const jssRocksService = require("./disconnected-server/jss-rocks-service");
@@ -45,4 +45,4 @@ const proxyOptions = {
   }
 };
 
-createDefaultDisconnectedServer(proxyOptions);
+createCustomDisconnectedServer(proxyOptions);
