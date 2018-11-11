@@ -22,6 +22,7 @@ class jssRocksApi {
     var encodedFormData = urlEncodeFormData(formData);
     return fetch(jssRocksApi.apiUrl, {
       method: "POST",
+      credentials: "same-origin", // required to send anti-forgery cookie
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       },

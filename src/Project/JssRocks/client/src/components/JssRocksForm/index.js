@@ -16,7 +16,10 @@ class JssRocksForm extends Component {
   submitForm = event => {
     event.preventDefault();
 
+    const { antiForgeryToken } = this.props.rendering;
     const data = new FormData(event.target);
+    data.append(antiForgeryToken.name, antiForgeryToken.value);
+
     jssRocksApi
       .submitForm(data)
       .then(response => {

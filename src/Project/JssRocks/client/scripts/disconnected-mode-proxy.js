@@ -13,7 +13,10 @@ const fs = require('fs');
 const { createCustomDisconnectedServer } = require('./disconnected-server/create-custom-disconnected-server');
 const config = require('../package.json').config;
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const jssRocksService = require("./disconnected-server/jss-rocks-service");
+const getRouteRenderings = require('./layout-service/get-route-renderings');
+const addAntiForgeryTokens = require('./layout-service/add-anti-forgery-tokens');
 
 const touchToReloadFilePath = 'src/temp/config.js';
 
@@ -40,8 +43,14 @@ const proxyOptions = {
   },
   afterMiddlewareRegistered: (app) => {
     app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(cookieParser());
     app.get("/jssrocksapi/form", jssRocksService.getContact);
     app.post("/jssrocksapi/form", jssRocksService.submitForm);
+  },
+  customizeRoute: (route, rawRoute, currentManifest, request, response) => {
+    const routeRenderings = getRouteRenderings(route);
+    addAntiForgeryTokens(routeRenderings, currentManifest, response);
+    return route;
   }
 };
 

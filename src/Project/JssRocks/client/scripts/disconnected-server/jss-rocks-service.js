@@ -1,3 +1,5 @@
+const validateAntiForgeryToken = require("./validate-anti-forgery-token");
+
 let contact = {
   name: ""
 };
@@ -8,10 +10,7 @@ class jssRocksService {
   }
 
   static submitForm(request, response) {
-    if (request.body === null) {
-      response.status(400).send("Bad request");
-      return;
-    }
+    if (!validateAntiForgeryToken(request, response)) return;
 
     contact = (({ name }) => ({ name }))(request.body);
     response.sendStatus(200);
