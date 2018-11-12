@@ -8,6 +8,7 @@ namespace CoreySmith.Feature.Forms
   {
     public void Configure(IServiceCollection serviceCollection)
     {
+      serviceCollection.AddTransient<JssRocksFormApiController>();
       serviceCollection.AddTransient<JssRocksFormController>();
     }
   }

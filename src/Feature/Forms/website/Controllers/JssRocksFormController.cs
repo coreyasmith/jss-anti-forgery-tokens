@@ -22,7 +22,7 @@ namespace CoreySmith.Feature.Forms.Controllers
     {
       if (!ModelState.IsValid) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-      _name = form.Name;
+      _name = $"{form.Name} (MVC)";
       return new HttpStatusCodeResult(HttpStatusCode.OK);
     }
   }
