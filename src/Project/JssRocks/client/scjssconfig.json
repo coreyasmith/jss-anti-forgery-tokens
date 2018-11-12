@@ -1,0 +1,9 @@
+{
+  "sitecore": {
+    "instancePath": "C:\\inetpub\\wwwroot\\jssaftokens.localhost",
+    "deployUrl": "http://jssaftokens.localhost/sitecore/api/jss/import",
+    "layoutServiceHost": "http://jssaftokens.localhost",
+    "apiKey": "{D3136283-35BE-466C-A3D0-FB5C2FE4BE26}",
+    "deploySecret": "peknk837xk37m9vo3zi5ukt6ayesae6ds13n0v6vg"
+  }
+}

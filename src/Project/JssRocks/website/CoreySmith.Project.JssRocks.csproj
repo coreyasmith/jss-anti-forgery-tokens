@@ -67,6 +67,7 @@
   <ItemGroup>
     <Content Include="App_Config\CoreySmith\Project\CoreySmith.Project.JssRocks.Serialization.config" />
     <Content Include="App_Config\CoreySmith\Project\CoreySmith.Project.JssRocks.JssConfig.config" />
+    <Content Include="App_Config\Environment\CoreySmith\CoreySmith.Project.JssRocks.Dev.config" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Web.config" />
