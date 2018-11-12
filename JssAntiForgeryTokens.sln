@@ -22,6 +22,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreySmith.Foundation.Serialization", "src\Foundation\Serialization\website\CoreySmith.Foundation.Serialization.csproj", "{03567124-F93E-4F9A-98E5-EC0084EFE5F0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feature", "Feature", "{04FEECDC-5CD3-48AE-BB67-AED544F7A3A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreySmith.Feature.Forms", "src\Feature\Forms\website\CoreySmith.Feature.Forms.csproj", "{EA5F2F84-DBB4-4A96-9652-D86224580089}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +40,10 @@ Global
 		{03567124-F93E-4F9A-98E5-EC0084EFE5F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03567124-F93E-4F9A-98E5-EC0084EFE5F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03567124-F93E-4F9A-98E5-EC0084EFE5F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA5F2F84-DBB4-4A96-9652-D86224580089}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA5F2F84-DBB4-4A96-9652-D86224580089}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA5F2F84-DBB4-4A96-9652-D86224580089}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA5F2F84-DBB4-4A96-9652-D86224580089}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +51,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DD39397E-C06F-431B-A7CF-4B03AAAF49E9} = {D51C6932-15E2-4044-B823-28DD7C0F6BF9}
 		{03567124-F93E-4F9A-98E5-EC0084EFE5F0} = {8BFEEC5A-D0DB-4141-B940-7E26F7530F5E}
+		{EA5F2F84-DBB4-4A96-9652-D86224580089} = {04FEECDC-5CD3-48AE-BB67-AED544F7A3A1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3C1ABEAE-85E6-41BA-9574-57404CA27F81}
