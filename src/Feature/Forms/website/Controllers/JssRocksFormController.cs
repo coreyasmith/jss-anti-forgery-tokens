@@ -2,9 +2,11 @@
 using System.Web.Mvc;
 using CoreySmith.Feature.Forms.Models;
 using Newtonsoft.Json;
+using Sitecore.LayoutService.Mvc.Security;
 
 namespace CoreySmith.Feature.Forms.Controllers
 {
+  [EnableApiKeyCors]
   public class JssRocksFormController : Controller
   {
     private static string _name;

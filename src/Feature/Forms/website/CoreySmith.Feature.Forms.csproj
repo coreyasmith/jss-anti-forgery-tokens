@@ -74,6 +74,9 @@
     <Reference Include="Sitecore.LayoutService">
       <HintPath>..\..\..\..\lib\Sitecore.LayoutService.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.LayoutService.Mvc">
+      <HintPath>..\..\..\..\lib\Sitecore.LayoutService.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Mvc, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Mvc.NoReferences.9.0.180604\lib\NET462\Sitecore.Mvc.dll</HintPath>
     </Reference>

@@ -30,6 +30,7 @@ Clone this repository. The rest of the setup assumes you cloned to
    - `Sitecore.JavaScriptServices.Configuration.dll` (`8.0.0.266`)
    - `Sitecore.JavaScriptServices.ViewEngine.dll` (`8.0.0.266`)
    - `Sitecore.LayoutService.dll` (`4.0.0.67`)
+   - `Sitecore.LayoutService.Mvc.dll` (`4.0.0.67`)
 4. If you used a clone path, install directory, or URL different than the
    defaults above, open
    [JssAntiForgeryTokens.sln](JssAntiForgeryTokens.sln) and modify

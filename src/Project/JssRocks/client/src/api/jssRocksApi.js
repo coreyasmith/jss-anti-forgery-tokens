@@ -12,7 +12,9 @@ const urlEncodeFormData = formData => {
 };
 
 class jssRocksApi {
-  static apiUrl = `${config.sitecoreApiHost}/jssrocksapi/form`;
+  static apiUrl = `${config.sitecoreApiHost}/jssrocksapi/form?sc_apikey=${
+    config.sitecoreApiKey
+  }`;
 
   static getContact() {
     return fetch(jssRocksApi.apiUrl).then(response => response.json());
@@ -22,7 +24,7 @@ class jssRocksApi {
     var encodedFormData = urlEncodeFormData(formData);
     return fetch(jssRocksApi.apiUrl, {
       method: "POST",
-      credentials: "same-origin", // required to send anti-forgery cookie
+      credentials: "include", // required to send anti-forgery cookie
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
