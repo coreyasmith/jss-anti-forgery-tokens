@@ -12,13 +12,19 @@
 const fs = require('fs');
 const { createCustomDisconnectedServer } = require('./disconnected-server/create-custom-disconnected-server');
 const config = require('../package.json').config;
+const express = require("express");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const { csrfProtection } = require("./disconnected-server/csrf-protection");
 const jssRocksService = require("./disconnected-server/jss-rocks-service");
 const getRouteRenderings = require('./layout-service/get-route-renderings');
 const addAntiForgeryTokens = require('./layout-service/add-anti-forgery-tokens');
 
 const touchToReloadFilePath = 'src/temp/config.js';
+
+const server = express();
+server.use(bodyParser.urlencoded({ extended: true }));
+server.use(cookieParser());
 
 const proxyOptions = {
   appRoot: __dirname,
@@ -41,15 +47,14 @@ const proxyOptions = {
       console.log('Manifest data updated. Refresh the browser to see latest content!');
     }
   },
+  server,
   afterMiddlewareRegistered: (app) => {
-    app.use(bodyParser.urlencoded({ extended: true }));
-    app.use(cookieParser());
     app.get("/jssrocksapi/form", jssRocksService.getContact);
-    app.post("/jssrocksapi/form", jssRocksService.submitForm);
+    app.post("/jssrocksapi/form", csrfProtection, jssRocksService.submitForm);
   },
   customizeRoute: (route, rawRoute, currentManifest, request, response) => {
     const routeRenderings = getRouteRenderings(route);
-    addAntiForgeryTokens(routeRenderings, currentManifest, response);
+    addAntiForgeryTokens(routeRenderings, currentManifest, request, response);
     return route;
   }
 };
