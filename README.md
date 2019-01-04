@@ -19,19 +19,12 @@ Clone this repository. The rest of the setup assumes you cloned to
 
 ### Connected Mode
 
-1. Install an instance of [Sitecore 9.0 Update-2][2].
+1. Install an instance of [Sitecore 9.1 Initial Release][2].
    - The default install path is
     `C:\inetpub\wwwroot\jssaftokens.localhost`.
    - The default URL is `jssaftokens.localhost`.
-2. Install [Sitecore JavaScript Services 9.0 Tech Preview 4][3].
-3. Copy the following assemblies from the `\bin` folder of your web root into
-   the `\lib` folder of your repository:
-   - `Sitecore.JavaScriptServices.AppServices.dll` (`8.0.0.266`)
-   - `Sitecore.JavaScriptServices.Configuration.dll` (`8.0.0.266`)
-   - `Sitecore.JavaScriptServices.ViewEngine.dll` (`8.0.0.266`)
-   - `Sitecore.LayoutService.dll` (`4.0.0.67`)
-   - `Sitecore.LayoutService.Mvc.dll` (`4.0.0.67`)
-4. If you used a clone path, install directory, or URL different than the
+2. Install [Sitecore JavaScript Services 11.0.0][3].
+3. If you used a clone path, install directory, or URL different than the
    defaults above, open
    [JssAntiForgeryTokens.sln](JssAntiForgeryTokens.sln) and modify
    the following files in the `.config` folder:
@@ -45,17 +38,17 @@ Clone this repository. The rest of the setup assumes you cloned to
      - Change `instancePath` to the path of your Sitecore instance.
      - Change `deployUrl` host name to the host name of your Sitecore instance.
      - Change `layoutServiceHost` to the URL of your Sitecore instance.
-5. Navigate to [/src/Project/JssRocks/client](/src/Project/JssRocks/client) and
+4. Navigate to [/src/Project/JssRocks/client](/src/Project/JssRocks/client) and
    deploy the JSS app with `jss deploy files`.
-6. Build the solution in Visual Studio.
+5. Build the solution in Visual Studio.
    - This will publish all code to your instance thanks to
      [Helix Publishing Pipeline][4].
    - Note: you may need to reload the solution and build a second time if you
      get errors about missing assemblies/references when you load Sitecore.
-7. Perform a Unicorn sync at `/unicorn.aspx?verb=sync`.
-8. Navigate to your site at <http://hostname.localhost.>
+6. Perform a Unicorn sync at `/unicorn.aspx?verb=sync`.
+7. Navigate to your site at <http://hostname.localhost.>
 
 [1]: https://jss.sitecore.net
-[2]: https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/90/Sitecore_Experience_Platform_90_Update2.aspx
-[3]: https://dev.sitecore.net/Downloads/Sitecore_JavaScript_Services/90_Tech_Preview/Sitecore_JavaScript_Services_90_Tech_Preview_4.aspx
+[2]: https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/91/Sitecore_Experience_Platform_91_Initial_Release.aspx
+[3]: https://dev.sitecore.net/Downloads/Sitecore_JavaScript_Services/110/Sitecore_JavaScript_Services_1100.aspx
 [4]: https://github.com/richardszalay/helix-publishing-pipeline
