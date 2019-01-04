@@ -13,7 +13,7 @@ Clone this repository. The rest of the setup assumes you cloned to
 
 ### Disconnected Mode
 
-1. Run `yarn install` in
+1. Run `npm install` in
    [/src/Project/JssRocks/client](/src/Project/JssRocks/client).
 2. Run `jss start`.
 
@@ -40,6 +40,7 @@ Clone this repository. The rest of the setup assumes you cloned to
      - Change `layoutServiceHost` to the URL of your Sitecore instance.
 4. Navigate to [/src/Project/JssRocks/client](/src/Project/JssRocks/client) and
    deploy the JSS app with `jss deploy files`.
+   - Run `npm install` in the directory if you haven't already.
 5. Build the solution in Visual Studio.
    - This will publish all code to your instance thanks to
      [Helix Publishing Pipeline][4].

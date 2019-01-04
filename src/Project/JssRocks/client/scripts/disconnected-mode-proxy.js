@@ -10,13 +10,14 @@
 /* eslint-disable no-console */
 
 const fs = require('fs');
-const { createCustomDisconnectedServer } = require('./disconnected-server/create-custom-disconnected-server');
+const path = require('path');
+const { createDefaultDisconnectedServer } = require('@sitecore-jss/sitecore-jss-dev-tools');
 const config = require('../package.json').config;
-const express = require("express");
-const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
-const { csrfProtection } = require("./disconnected-server/csrf-protection");
-const jssRocksService = require("./disconnected-server/jss-rocks-service");
+const express = require('express');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const { csrfProtection } = require('./disconnected-server/csrf-protection');
+const jssRocksService = require('./disconnected-server/jss-rocks-service');
 const getRouteRenderings = require('./layout-service/get-route-renderings');
 const addAntiForgeryTokens = require('./layout-service/add-anti-forgery-tokens');
 
@@ -27,15 +28,15 @@ server.use(bodyParser.urlencoded({ extended: true }));
 server.use(cookieParser());
 
 const proxyOptions = {
-  appRoot: __dirname,
+  appRoot: path.join(__dirname, '..'),
   appName: config.appName,
-  watchPaths: ['../data'],
+  watchPaths: ['./data'],
   language: config.language,
-  port: 3042,
+  port: process.env.PROXY_PORT || 3042,
   onManifestUpdated: (manifest) => {
     // if we can resolve the config file, we can alter it to force reloading the app automatically
     // instead of waiting for a manual reload. We must materially alter the _contents_ of the file to trigger
-    // an actual reload, so we append "// reloadnow" to the file each time. This will not cause a problem,
+    // an actual reload, so we append '// reloadnow' to the file each time. This will not cause a problem,
     // since every build regenerates the config file from scratch and it's ignored from source control.
     if (fs.existsSync(touchToReloadFilePath)) {
       const currentFileContents = fs.readFileSync(touchToReloadFilePath, 'utf8');
@@ -49,8 +50,8 @@ const proxyOptions = {
   },
   server,
   afterMiddlewareRegistered: (app) => {
-    app.get("/jssrocksapi/form", jssRocksService.getContact);
-    app.post("/jssrocksapi/form", csrfProtection, jssRocksService.submitForm);
+    app.get('/jssrocksapi/form', jssRocksService.getContact);
+    app.post('/jssrocksapi/form', csrfProtection, jssRocksService.submitForm);
   },
   customizeRoute: (route, rawRoute, currentManifest, request, response) => {
     const routeRenderings = getRouteRenderings(route);
@@ -59,4 +60,8 @@ const proxyOptions = {
   }
 };
 
-createCustomDisconnectedServer(proxyOptions);
+// Need to customize something that the proxy options don't support?
+// createDefaultDisconnectedServer() is a boilerplate that you can copy from
+// and customize the middleware registrations within as you see fit.
+// See https://github.com/Sitecore/jss/blob/master/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts
+createDefaultDisconnectedServer(proxyOptions);
