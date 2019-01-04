@@ -9,7 +9,7 @@ disconnected and connected modes.
 ## Setup
 
 Clone this repository. The rest of the setup assumes you cloned to
-`C:\Projects\Sitecore\JssAntiForgeryTokens`.
+`C:\Projects\Sitecore\jss-anti-forgery-tokens`.
 
 ### Disconnected Mode
 
