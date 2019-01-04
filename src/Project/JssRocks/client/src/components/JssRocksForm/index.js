@@ -13,20 +13,24 @@ class JssRocksForm extends Component {
     }
   };
 
+  getFormData = form => {
+    const formData = new FormData(form);
+    const { antiForgeryToken } = this.props.rendering;
+    formData.append(antiForgeryToken.name, antiForgeryToken.value);
+    return formData;
+  };
+
   submitForm = event => {
     event.preventDefault();
 
-    const { antiForgeryToken } = this.props.rendering;
-    const data = new FormData(event.target);
-    data.append(antiForgeryToken.name, antiForgeryToken.value);
-
+    const formData = this.getFormData(event.target);
     jssRocksApi
-      .submitForm(data)
+      .submitForm(formData)
       .then(response => {
         if (!response.ok) {
           throw new Error("Uh oh.");
         }
-        this.setState({ name: data.get("name") });
+        this.setState({ name: formData.get("name") });
       })
       .catch(() => window.alert("Uh oh. Something bad happened!"));
   };
