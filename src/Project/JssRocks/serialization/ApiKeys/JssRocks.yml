@@ -3,7 +3,7 @@ ID: "47d808b3-f47d-4029-a107-a54019a97f07"
 Parent: "7c699e4b-3a03-40c8-b61e-460469f5077f"
 Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
 Path: /sitecore/system/Settings/Services/API Keys/Project/JssRocks
-DB: core
+DB: master
 Languages:
 - Language: en
   Versions:

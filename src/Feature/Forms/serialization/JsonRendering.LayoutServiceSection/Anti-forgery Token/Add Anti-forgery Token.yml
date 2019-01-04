@@ -2,7 +2,7 @@
 ID: "176800f2-21f1-431d-8a30-ed3235a5218d"
 Parent: "5dc0dc44-80ab-4e1d-a326-5b7297ebc1c3"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: "/sitecore/templates/JavaScriptServices/Json Rendering/Anti-forgery Token/Add Anti-forgery Token"
+Path: "/sitecore/templates/Foundation/JavaScript Services/Json Rendering/Anti-forgery Token/Add Anti-forgery Token"
 DB: master
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
