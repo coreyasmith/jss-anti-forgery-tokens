@@ -21,8 +21,8 @@ Clone this repository. The rest of the setup assumes you cloned to
 
 1. Install an instance of [Sitecore 9.1 Initial Release][2].
    - The default install path is
-    `C:\inetpub\wwwroot\jssaftokens.localhost`.
-   - The default URL is `jssaftokens.localhost`.
+    `C:\inetpub\wwwroot\jssaftokens.sitecore`.
+   - The default URL is `jssaftokens.sitecore`.
 2. Install [Sitecore JavaScript Services 11.0.0][3].
 3. If you used a clone path, install directory, or URL different than the
    defaults above, open
@@ -47,7 +47,7 @@ Clone this repository. The rest of the setup assumes you cloned to
    - Note: you may need to reload the solution and build a second time if you
      get errors about missing assemblies/references when you load Sitecore.
 6. Perform a Unicorn sync at `/unicorn.aspx?verb=sync`.
-7. Navigate to your site at <http://hostname.localhost.>
+7. Navigate to your site at <http://hostname.sitecore.>
 
 [1]: https://jss.sitecore.net
 [2]: https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/91/Sitecore_Experience_Platform_91_Initial_Release.aspx
