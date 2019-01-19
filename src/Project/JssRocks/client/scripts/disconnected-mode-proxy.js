@@ -36,7 +36,7 @@ const proxyOptions = {
   onManifestUpdated: (manifest) => {
     // if we can resolve the config file, we can alter it to force reloading the app automatically
     // instead of waiting for a manual reload. We must materially alter the _contents_ of the file to trigger
-    // an actual reload, so we append '// reloadnow' to the file each time. This will not cause a problem,
+    // an actual reload, so we append "// reloadnow" to the file each time. This will not cause a problem,
     // since every build regenerates the config file from scratch and it's ignored from source control.
     if (fs.existsSync(touchToReloadFilePath)) {
       const currentFileContents = fs.readFileSync(touchToReloadFilePath, 'utf8');
