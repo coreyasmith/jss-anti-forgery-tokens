@@ -18,8 +18,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { csrfProtection } = require('./disconnected-server/csrf-protection');
 const jssRocksService = require('./disconnected-server/jss-rocks-service');
-const getRouteRenderings = require('./layout-service/get-route-renderings');
-const addAntiForgeryTokens = require('./layout-service/add-anti-forgery-tokens');
+const addAntiForgeryToken = require('./layout-service/add-anti-forgery-token');
 
 const touchToReloadFilePath = 'src/temp/config.js';
 
@@ -53,10 +52,9 @@ const proxyOptions = {
     app.get('/jssrocksapi/form', jssRocksService.getContact);
     app.post('/jssrocksapi/form', csrfProtection, jssRocksService.submitForm);
   },
-  customizeRoute: (route, rawRoute, currentManifest, request, response) => {
-    const routeRenderings = getRouteRenderings(route);
-    addAntiForgeryTokens(routeRenderings, currentManifest, request, response);
-    return route;
+  customizeRendering: (transformedRendering, rawRendering, currentManifest, request, response) => {
+    let customizedRendering = addAntiForgeryToken(transformedRendering, currentManifest, request, response);
+    return customizedRendering;
   }
 };
 
